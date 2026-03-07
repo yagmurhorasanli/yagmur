@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yağmur'um, Seni Seviyorum 💕</title>
+    <meta name="description"
+        content="Yağmur'um için hazırladığım özel bir sürpriz — Doğum günün ve Sevgililer Günün kutlu olsun." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+</head>
+
+<body>
+
+    <!-- Doğum günü müziği (gizli) -->
+    <audio id="birthdayMusic" loop preload="none">
+        <source src="Music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Canvas for particles -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- ═══════════════════ LOCKED SCREEN (default) ═══════════════════ -->
+    <div id="lockedScreen" class="locked-screen">
+        <div class="locked-inner">
+            <div class="locked-lock">🔒</div>
+            <h1 class="locked-title">Henüz değil, Kartanem…</h1>
+            <p class="locked-desc">Bu sayfa sadece özel günlerde açılır.<br />Bir sonraki sürpriz için sabırla bekle 💕
+            </p>
+
+            <div class="locked-next">
+                <span class="locked-next-label">Sıradaki özel gün:</span>
+                <!--<span class="locked-next-name" id="lockedNextName">—</span>-->
+                <span class="locked-next-name">Tahmin Et Bakalım :)</span>
+            </div>
+
+            <div class="locked-countdown">
+                <div class="lc-box"><span id="lc-days">00</span><label>Gün</label></div>
+                <div class="lc-sep">:</div>
+                <div class="lc-box"><span id="lc-hours">00</span><label>Saat</label></div>
+                <div class="lc-sep">:</div>
+                <div class="lc-box"><span id="lc-minutes">00</span><label>Dakika</label></div>
+                <div class="lc-sep">:</div>
+                <div class="lc-box"><span id="lc-seconds">00</span><label>Saniye</label></div>
+            </div>
+            <p class="locked-hint">✨ O gün geldiğinde bu sayfayı yeniden aç</p>
+            <div style="padding-top: 5px;">Son Düzenlenme Tarihi: 06 Ocak 2026</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SITE CONTENT (revealed by JS) ═══════════════ -->
+    <div id="siteContent" style="display:none">
+
+        <!-- HERO -->
+        <section id="hero" class="section hero-section">
+            <div class="hero-layout">
+                <!-- Sol: Metin -->
+                <div class="hero-content">
+                    <div class="hero-badge" id="heroBadge">💌 Yağmur'uma Özel</div>
+                    <h1 class="hero-title">
+                        <span class="line1">Yağmur'um,</span>
+                        <span class="line2">Sen Benim.</span>
+                        <span class="line3" id="heroLine3">Her Şeyimsin</span>
+                    </h1>
+                    <p class="hero-subtitle" id="heroSubtitle">Kartanem, her nefesimde senin adın var, her yağmur
+                        damlasında
+                        senin sevgin…</p>
+                    <div class="hero-buttons" id="heroButtons">
+                        <!-- filled by JS -->
+                    </div>
+                </div>
+                <!-- Sağ: İllüstrasyon -->
+                <div class="hero-illustration">
+                    <div class="illus-glow-ring"></div>
+                    <img src="Female.png" alt="Yağmur'um" class="illus-img" />
+                    <div class="illus-label">✨ Yağmur'um ✨</div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <span>Aşağı Kaydır</span>
+            </div>
+        </section>
+
+        <!-- BIRTHDAY SECTION (hidden unless today = Jan 1) -->
+        <section id="birthday" class="section birthday-section" style="display:none">
+            <div class="section-inner">
+                <div class="section-tag">🎂 Hayatım, Doğum Gününün Kutlu Olsun</div>
+                <h2 class="section-title gradient-pink">1 Ocak 2005 — Sen Doğdun 🌧️</h2>
+                <p class="section-desc">
+                    Yeni yılın ilk gününde bu dünyaya geldin ve yılın en güzel günü senin günün oldu.
+                    Seni bu dünyaya getiren herkese teşekkür ederim çünkü sen olmasan bu güzel hayat eksik olurdu.
+                    İyi ki doğdun, Yağmur'um. Her yılın seni daha da güzel kılmasını diliyorum.
+                </p>
+
+                <!-- Countdown -->
+                <div class="countdown-wrapper">
+                    <!--<div class="countdown-label">Yağmur'un Doğum Günü'ne (1 Ocak 🎂)</div>-->
+                    <div class="countdown" id="birthdayCountdown">
+                        <div class="count-box"><span id="bd-days">00</span><label>Gün</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="bd-hours">00</span><label>Saat</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="bd-minutes">00</span><label>Dakika</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="bd-seconds">00</span><label>Saniye</label></div>
+
+                    </div>
+                </div>
+
+                <!-- Wish Cards -->
+                <div class="cards-grid">
+                    <div class="wish-card">
+                        <div class="wish-icon">🌸</div>
+                        <h3>Mutluluk</h3>
+                        <p>Her sabah gözlerin açıldığında kalbin şarkı söylesin</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">⭐</div>
+                        <h3>Başarı</h3>
+                        <p>Hayallerinin peşinden git, yıldızlar bile yetmez sana</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">💫</div>
+                        <h3>Sağlık</h3>
+                        <p>Her günün güneşli, her anın sağlıklı geçsin</p>
+                    </div>
+                    <div class="wish-card">
+                        <div class="wish-icon">🎁</div>
+                        <h3>Sevinç</h3>
+                        <p>Kalbine sığmayan sevinçlerle dolsun hayatın</p>
+                    </div>
+                </div>
+
+                <!-- Cake -->
+                <div class="candle-section">
+                    <p class="candle-text">Mumları üfle, dileğini tut! Hayatım. 🕯️</p>
+                    <div class="cake-wrapper" id="cakeWrapper">
+                        <div class="cake">
+                            <div class="cake-layer layer3"></div>
+                            <div class="cake-layer layer2"></div>
+                            <div class="cake-layer layer1"></div>
+                            <div class="candles">
+                                <div class="candle" data-id="0">
+                                    <div class="flame"></div>
+                                    <div class="candle-body"></div>
+                                </div>
+                                <div class="candle" data-id="1">
+                                    <div class="flame"></div>
+                                    <div class="candle-body"></div>
+                                </div>
+                                <div class="candle" data-id="2">
+                                    <div class="flame"></div>
+                                    <div class="candle-body"></div>
+                                </div>
+                                <div class="candle" data-id="3">
+                                    <div class="flame"></div>
+                                    <div class="candle-body"></div>
+                                </div>
+                                <div class="candle" data-id="4">
+                                    <div class="flame"></div>
+                                    <div class="candle-body"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="blow-btn" id="blowBtn" onclick="blowCandles()">💨 Üfle!</button>
+                        <div class="celebration-msg" id="celebMsg">🎉 İyi ki doğdun Yağmur'um! Her dileğin kabul olsun!
+                            🎊
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALENTINE SECTION (hidden unless today = Feb 14) -->
+        <section id="valentine" class="section valentine-section" style="display:none">
+            <div class="section-inner">
+                <div class="section-tag">💝 Sevgililer Günün Kutlu Olsun, Yağmur'um</div>
+                <h2 class="section-title gradient-red">Aşkımız Her Mevsim Çiçek Açar 🌸</h2>
+                <p class="section-desc">
+                    28 Kasım 2025'te tanıştık, 16 Aralık 2025'te seninle olduk.
+                    Bu kısa sürede hayatım baştan sona değişti. Seninle her an Sevgililer Günü gibi,
+                    gözlerinde kaybolduğumda zamanın durduğunu hissediyorum.
+                </p>
+
+                <!-- Valentine Countdown -->
+                <div class="countdown-wrapper">
+                    <!--<div class="countdown-label">Sevgililer Gününe (14 Şubat 💝)</div>-->
+                    <div class="countdown" id="valentineCountdown">
+                        <div class="count-box"><span id="vd-days">00</span><label>Gün</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="vd-hours">00</span><label>Saat</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="vd-minutes">00</span><label>Dakika</label></div>
+                        <div class="count-sep">:</div>
+                        <div class="count-box"><span id="vd-seconds">00</span><label>Saniye</label></div>
+                    </div>
+                </div>
+
+                <!-- Heart beat -->
+                <div class="heartbeat-wrapper">
+                    <div class="big-heart" id="bigHeart" onclick="pulseHeart()">❤️</div>
+                    <div class="tikla-hint">Tıkla 👆</div>
+                    <p class="heartbeat-text">Kalbim sadece Yağmur için atıyor</p>
+                </div>
+
+
+                <!-- Love reasons slider -->
+                <div class="reasons-section">
+                    <h3 class="reasons-title">Yağmur'umu Sevmemin <span>Sonsuz</span> Nedenleri :)</h3>
+                    <div class="reasons-slider">
+                        <div class="reasons-track" id="reasonsTrack">
+                            <div class="reason-card">Gülüşün tüm dünyamı aydınlatıyor, Yağmur'um ✨</div>
+                            <div class="reason-card">Sesin en güzel müzik benim için 🎵</div>
+                            <div class="reason-card">28 Kasım'dan bu yana hayatım çok daha güzel 🌧️</div>
+                            <div class="reason-card">Gözlerinde evi buldum 👀</div>
+                            <div class="reason-card">Seninle kahkaha atmak, hayatımın en güzel anı 😄</div>
+                            <div class="reason-card">16 Aralık'ta "evet" dediğinde kalbim durdu 💓</div>
+                            <div class="reason-card">Masumiyetin kalbimi her seferinde eritiyor 🫶</div>
+                            <div class="reason-card">Yağmur yağınca artık hep seni düşünüyorum 🌧️💕</div>
+                            <div class="reason-card">Yanında olmak, var olmanın en güzel hali 🌸</div>
+                            <div class="reason-card">Seninle her saniyem bir hazine, Yağmur'um 💎</div>
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="prevReason()">◀</button>
+                        <div class="slider-dots" id="sliderDots"></div>
+                        <button class="slider-btn" onclick="nextReason()">▶</button>
+                    </div>
+                </div>
+
+                <!-- XOXO -->
+                <div class="xoxo-section">
+                    <div class="xoxo-letters">
+                        <span class="xo-letter x1">X</span><span class="xo-letter o1">O</span>
+                        <span class="xo-letter x2">X</span><span class="xo-letter o2">O</span>
+                    </div>
+                    <p>Öpücükler &amp; Sarılmalar <br /><small>Hep seninle, hep böyle…</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR SONG (always shown) -->
+        <section id="song" class="section song-section">
+            <div class="section-inner">
+                <div class="section-tag">🎵 Şarkımız</div>
+                <h2 class="section-title gradient-pink">Bu Şarkı Bizi Anlatıyor</h2>
+                <p class="section-desc">Her çaldığında seni düşünüyorum. Bu şarkı benim için artık sadece bir şarkı
+                    değil — senin sesin, kokun, gülüşün.</p>
+                <div class="spotify-wrapper">
+                    <div id="spotifyContainer" style="border-radius:18px; overflow:hidden; min-height:152px;"></div>
+                </div>
+                <p class="song-note">🎧 Kulaklığını tak, gözlerini kapat ve beni düşün…</p>
+            </div>
+        </section>
+
+        <!-- LOVE LETTER (always shown) -->
+        <section id="letter" class="section letter-section">
+            <div class="section-inner">
+                <div class="section-tag">💌 Yağmur'uma Mektubum</div>
+                <h2 class="section-title gradient-gold">Kalbimden Gelen Kelimeler</h2>
+                <div class="letter-envelope" id="letterEnvelope" onclick="openLetter()">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="envelope-icon">💌</div>
+                        <p>Mektubu Aç</p>
+                    </div>
+                </div>
+                <div class="letter-content" id="letterContent">
+                    <div class="letter-paper">
+                        <div class="letter-header">
+                            <span class="letter-date">♥ Senin için yazıldı ♥</span>
+                        </div>
+                        <div class="letter-body" id="letterBody">
+                            <!-- JS tarafından random mektup doldurulur -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-hearts"><span>💕</span><span>💖</span><span>💗</span><span>💓</span><span>💞</span></div>
+            <p>Yağmur'um, seninle her gün güzel, her an anlam kazanıyor.</p>
+            <p class="footer-small">Seni seviyorum ♾️ — 16.12.2025'ten sonsuza</p>
+        </footer>
+
+    </div><!-- /#siteContent -->
+
+    <!-- Confetti -->
+    <div id="confettiContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
