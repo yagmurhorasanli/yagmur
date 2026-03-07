@@ -8,8 +8,8 @@
 // ─────────────────────────────────────────────
 const BIRTHDAY_MONTH = 1;   // Doğum günü AYI  (1=Ocak … 12=Aralık)
 const BIRTHDAY_DAY = 1;   // Doğum günü GÜNÜ
-const VALENTINE_MONTH = 14;   // Sevgililer günü AYI
-const VALENTINE_DAY = 2;  // Sevgililer günü GÜNÜ
+const VALENTINE_MONTH = 2;   // Sevgililer günü AYI
+const VALENTINE_DAY = 14;  // Sevgililer günü GÜNÜ
 
 // Türkçe ay isimleri (kilitli ekrandaki yazı için)
 const AY = ['', 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
@@ -639,6 +639,7 @@ function fadeVolume(audio, from, to, durationMs) {
         if (step >= steps) clearInterval(timer);
     }, interval);
 }
+
 
 
 
