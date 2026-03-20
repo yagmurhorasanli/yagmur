@@ -6,8 +6,8 @@
 //  0. DATE-BASED ROUTING
 //  ✏️  Tarihleri BURADAN değiştir — tek yer yeterli!
 // ─────────────────────────────────────────────
-const BIRTHDAY_MONTH = 1;   // Doğum günü AYI  (1=Ocak … 12=Aralık)
-const BIRTHDAY_DAY = 1;   // Doğum günü GÜNÜ
+const BIRTHDAY_MONTH = 3;   // Doğum günü AYI  (1=Ocak … 12=Aralık)
+const BIRTHDAY_DAY = 20;   // Doğum günü GÜNÜ
 const VALENTINE_MONTH = 2;   // Sevgililer günü AYI
 const VALENTINE_DAY = 14;  // Sevgililer günü GÜNÜ
 
