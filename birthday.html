@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İyi ki Doğdun Yağmur'um 🎂</title>
+    <meta name="description" content="Yağmur'um için doğum günü sürprizi 🎂" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</head>
+
+<body>
+
+
+
+
+
+    <!-- Doğum günü müziği -->
+    <audio id="birthdayMusic" loop preload="none">
+        <source src="Music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Canvas for particles -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- HERO -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="hero-badge" id="heroBadge">💌 Yağmur'uma Özel</div>
+                <h1 class="hero-title">
+                    <span class="line1">Yağmur'um,</span>
+                    <span class="line2">Sen Benim.</span>
+                    <span class="line3">İyi ki Doğdun!</span>
+                </h1>
+                <p class="hero-subtitle">Kartanem, yeni yılın ilk günü senin günün — çünkü sen bu dünyanın en güzel
+                    hediyesisin 🎂</p>
+            </div>
+            <div class="hero-illustration">
+                <div class="illus-glow-ring"></div>
+                <img src="Birthday.jpg" alt="Yağmur'um" class="illus-img" />
+                <div class="illus-label">✨ Yağmur'um ✨</div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Aşağı Kaydır</span>
+        </div>
+    </section>
+
+    <!-- BIRTHDAY SECTION -->
+    <section id="birthday" class="section birthday-section">
+        <div class="section-inner">
+            <div class="section-tag">🎂 Hayatım, Doğum Gününün Kutlu Olsun</div>
+            <h2 class="section-title gradient-pink">1 Ocak 2005 — Sen Doğdun 🌧️</h2>
+            <p class="section-desc">
+                Yeni yılın ilk gününde bu dünyaya geldin ve yılın en güzel günü senin günün oldu.
+                Seni bu dünyaya getiren herkese teşekkür ederim çünkü sen olmasan bu güzel hayat eksik olurdu.
+                İyi ki doğdun, Yağmur'um. Her yılın seni daha da güzel kılmasını diliyorum.
+            </p>
+
+            <!-- Countdown -->
+            <div class="countdown-wrapper">
+                <div class="countdown" id="birthdayCountdown">
+                    <div class="count-box"><span id="bd-days">00</span><label>Gün</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="bd-hours">00</span><label>Saat</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="bd-minutes">00</span><label>Dakika</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="bd-seconds">00</span><label>Saniye</label></div>
+                </div>
+            </div>
+
+            <!-- Wish Cards -->
+            <div class="cards-grid">
+                <div class="wish-card">
+                    <div class="wish-icon">🌸</div>
+                    <h3>Mutluluk</h3>
+                    <p>Her sabah gözlerin açıldığında kalbin şarkı söylesin</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">⭐</div>
+                    <h3>Başarı</h3>
+                    <p>Hayallerinin peşinden git, yıldızlar bile yetmez sana</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">💫</div>
+                    <h3>Sağlık</h3>
+                    <p>Her günün güneşli, her anın sağlıklı geçsin</p>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon">🎁</div>
+                    <h3>Sevinç</h3>
+                    <p>Kalbine sığmayan sevinçlerle dolsun hayatın</p>
+                </div>
+            </div>
+
+            <!-- Cake -->
+            <div class="candle-section">
+                <p class="candle-text">Mumları üfle, dileğini tut! Hayatım. 🕯️</p>
+                <div class="cake-wrapper" id="cakeWrapper">
+                    <div class="cake">
+                        <div class="cake-layer layer3"></div>
+                        <div class="cake-layer layer2"></div>
+                        <div class="cake-layer layer1"></div>
+                        <div class="candles">
+                            <div class="candle" data-id="0">
+                                <div class="flame"></div>
+                                <div class="candle-body"></div>
+                            </div>
+                            <div class="candle" data-id="1">
+                                <div class="flame"></div>
+                                <div class="candle-body"></div>
+                            </div>
+                            <div class="candle" data-id="2">
+                                <div class="flame"></div>
+                                <div class="candle-body"></div>
+                            </div>
+                            <div class="candle" data-id="3">
+                                <div class="flame"></div>
+                                <div class="candle-body"></div>
+                            </div>
+                            <div class="candle" data-id="4">
+                                <div class="flame"></div>
+                                <div class="candle-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="blow-btn" id="blowBtn" onclick="blowCandles()">💨 Üfle!</button>
+                    <div class="celebration-msg" id="celebMsg">🎉 İyi ki doğdun Yağmur'um! Her dileğin kabul olsun! 🎊
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SONG -->
+    <section id="song" class="section song-section">
+        <div class="section-inner">
+            <div class="section-tag">🎵 Şarkımız</div>
+            <h2 class="section-title gradient-pink">Bu Şarkı Bizi Anlatıyor</h2>
+            <p class="section-desc">Her çaldığında seni düşünüyorum. Bu şarkı benim için artık sadece bir şarkı değil —
+                senin sesin, kokun, gülüşün.</p>
+            <div class="spotify-wrapper">
+                <div id="spotifyContainer" style="border-radius:18px; overflow:hidden; min-height:152px;"></div>
+            </div>
+            <p class="song-note">🎧 Kulaklığını tak, gözlerini kapat ve beni düşün…</p>
+        </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section id="letter" class="section letter-section">
+        <div class="section-inner">
+            <div class="section-tag">💌 Yağmur'uma Mektubum</div>
+            <h2 class="section-title gradient-gold">Kalbimden Gelen Kelimeler</h2>
+            <div class="letter-envelope" id="letterEnvelope" onclick="openLetter()">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="envelope-icon">💌</div>
+                    <p>Mektubu Aç</p>
+                </div>
+            </div>
+            <div class="letter-content" id="letterContent">
+                <div class="letter-paper">
+                    <div class="letter-header"><span class="letter-date">♥ Senin için yazıldı ♥</span></div>
+                    <div class="letter-body" id="letterBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-hearts"><span>💕</span><span>💖</span><span>💗</span><span>💓</span><span>💞</span></div>
+        <p>Yağmur'um, seninle her gün güzel, her an anlam kazanıyor.</p>
+        <p class="footer-small">Seni seviyorum, 16.12.2025'ten — ♾️ sonsuza kadar</p>
+    </footer>
+
+    <!-- Confetti -->
+    <div id="confettiContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Doğum günü geri sayım (bir sonraki yıla)
+        (function updateBdCountdown() {
+            const MONTH = 1, DAY = 1; // 1 Ocak
+            const now = new Date();
+            let target = new Date(now.getFullYear(), MONTH - 1, DAY, 0, 0, 0);
+            // Bugün doğum günüyse sayacı sıfır göster
+            if (now.getMonth() + 1 === MONTH && now.getDate() === DAY) {
+                zeroCountdown('bd');
+            } else {
+                if (target <= now) target = new Date(now.getFullYear() + 1, MONTH - 1, DAY, 0, 0, 0);
+                const diff = target - now;
+                if (diff > 0) setCountdown('bd', diff);
+                setTimeout(updateBdCountdown, 1000);
+            }
+        })();
+        // Doğum günü overlay + müzik
+        (function () {
+            const bdMusic = document.getElementById('birthdayMusic');
+            const overlay = document.createElement('div');
+            overlay.id = 'bdIntroOverlay';
+            overlay.innerHTML = `
+                <div class="bdo-inner">
+                    <p class="bdo-sub">Sürprizini görmek için tıkla</p>
+                    <div class="bdo-btn">✨ Tıkla ✨</div>
+                    <p class="bdo-note">🎵 Müzikle birlikte açılacak</p>
+                </div>
+            `;
+            overlay.style.cssText = `
+                position: fixed; inset: 0; z-index: 99999;
+                background: radial-gradient(ellipse at 50% 40%, rgba(155,93,229,0.35) 0%, transparent 60%),
+                            radial-gradient(ellipse at 20% 80%, rgba(255,10,84,0.25) 0%, transparent 60%),
+                            #0d0014;
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer;
+                animation: bdOverlayIn 0.8s ease both;
+            `;
+            document.body.appendChild(overlay);
+            const bdStyle = document.createElement('style');
+            bdStyle.textContent = `
+                @keyframes bdOverlayIn { from { opacity:0; } to { opacity:1; } }
+                @keyframes bdOverlayOut { from { opacity:1; transform:scale(1); } to { opacity:0; transform:scale(1.06); } }
+                .bdo-inner { text-align:center; animation: fadeInUp 1s ease both; }
+                .bdo-sub { font-family:'Poppins',sans-serif; font-size:1.1rem; color:rgba(255,214,231,0.7); margin-bottom:32px; }
+                .bdo-btn { display:inline-block; padding:16px 44px; border-radius:999px; background:linear-gradient(135deg,#ff6b9d,#c9184a); color:#fff; font-size:1.1rem; font-weight:700; box-shadow:0 8px 32px rgba(201,24,74,0.45); transition:transform 0.3s,box-shadow 0.3s; margin-bottom:16px; }
+                #bdIntroOverlay:hover .bdo-btn { transform:translateY(-4px) scale(1.05); box-shadow:0 14px 40px rgba(201,24,74,0.6); }
+                .bdo-note { font-size:0.85rem; color:rgba(255,214,231,0.45); }
+            `;
+            document.head.appendChild(bdStyle);
+            overlay.addEventListener('click', () => {
+                if (bdMusic) { bdMusic.volume = 0.55; bdMusic.play().catch(() => { }); }
+                overlay.style.animation = 'bdOverlayOut 0.6s ease forwards';
+                setTimeout(() => overlay.remove(), 600);
+                if (bdMusic) {
+                    const musicBtn = document.createElement('button');
+                    musicBtn.innerHTML = '🎵';
+                    musicBtn.style.cssText = `position:fixed;bottom:24px;right:24px;z-index:9999;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#ff6b9d,#c9184a);border:none;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 24px rgba(201,24,74,0.45);transition:all 0.3s;`;
+                    musicBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (bdMusic.paused) { bdMusic.play(); musicBtn.innerHTML = '🎵'; musicBtn.style.opacity = '1'; }
+                        else { bdMusic.pause(); musicBtn.innerHTML = '🔇'; musicBtn.style.opacity = '0.6'; }
+                    });
+                    document.body.appendChild(musicBtn);
+                }
+            }, { once: true });
+        })();
+        initScrollAnimations();
+    </script>
+</body>
+
+</html>

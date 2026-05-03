@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seninle Tanıştığım Gün 🏐</title>
+    <meta name="description" content="28 Temmuz — Voleybolda ilk tanışmamızın yıl dönümü 🏐" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</head>
+
+<body>
+
+
+
+
+    <!-- Canvas for particles -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- HERO -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="hero-badge">💌 Yağmur'uma Özel</div>
+                <h1 class="hero-title">
+                    <span class="line1">Yağmur'um,</span>
+                    <span class="line2">Sen Benim.</span>
+                    <!--<span class="line3">Seni Tanıdığım Gün </span>-->
+                </h1>
+                <p class="hero-subtitle">Kartanem, tam olarak bu gün voleybolda ilk kez karşılaştık — ve hayatım bir
+                    daha eskisi gibi olmadı 💕</p>
+            </div>
+            <div class="hero-illustration">
+                <div class="illus-glow-ring"></div>
+                <img src="Meeting.png" alt="Yağmur'um" class="illus-img" />
+
+                <div class="illus-label">✨ Yağmur'um ✨</div>
+            </div>
+        </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Aşağı Kaydır</span>
+        </div>
+    </section>
+
+    <!-- MEETING SECTION -->
+    <section id="meeting" class="section meeting-section">
+        <div class="section-inner">
+            <div class="section-tag">🏐 İlk Tanışmamızın Yıl Dönümü</div>
+            <h2 class="section-title gradient-pink">28 Temmuz — Seninle Tanıştığım Gün 🌧️</h2>
+            <p class="section-desc">
+                Voleybol sahasında ilk gördüğümde kalbim bir an durdu. Dantelli çorabını gösterip
+                bana gülümsediğinde, bu tanışmanın sıradan olmayacağını hissettim.
+                O an hayatımın en güzel kazası oldu — ve seni tanıdığım için çok şanslıyım, Yağmur'um.
+            </p>
+
+            <div class="special-memory-card">
+                <div class="memory-icon">🏐</div>
+                <div class="memory-text">
+                    <h3>O Anı Hep Hatırlayacağım</h3>
+                    <p>Voleybolda bana dantelli çorabını gösterip tavlamaya çalışırken…
+                        bilmiyordum ki o küçük jest, kalbimi sonsuza dek kazanacak.</p>
+                </div>
+            </div>
+
+            <div class="anniversary-countdown-wrapper">
+                <p class="anniversary-label">✨ Bu Tanışmadan Bu Yana ✨</p>
+                <div class="anniversary-display" id="meetingAnniversary">
+                    <div class="anniv-box"><span id="mt-days">00</span><label>Gün</label></div>
+                    <div class="anniv-sep">·</div>
+                    <div class="anniv-box"><span id="mt-hours">00</span><label>Saat</label></div>
+                    <div class="anniv-sep">·</div>
+                    <div class="anniv-box"><span id="mt-minutes">00</span><label>Dakika</label></div>
+                    <div class="anniv-sep">·</div>
+                    <div class="anniv-box"><span id="mt-seconds">00</span><label>Saniye</label></div>
+                </div>
+            </div>
+
+            <div class="volleyball-emojis">
+                <span>🏐</span><span>💕</span><span>🏐</span><span>✨</span><span>🏐</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SONG -->
+    <section id="song" class="section song-section">
+        <div class="section-inner">
+            <div class="section-tag">🎵 Şarkımız</div>
+            <h2 class="section-title gradient-pink">Bu Şarkı Bizi Anlatıyor</h2>
+            <p class="section-desc">Her çaldığında seni düşünüyorum. Bu şarkı benim için artık sadece bir şarkı değil —
+                senin sesin, kokun, gülüşün.</p>
+            <div class="spotify-wrapper">
+                <div id="spotifyContainer" style="border-radius:18px; overflow:hidden; min-height:152px;"></div>
+            </div>
+            <p class="song-note">🎧 Kulaklığını tak, gözlerini kapat ve beni düşün…</p>
+        </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section id="letter" class="section letter-section">
+        <div class="section-inner">
+            <div class="section-tag">💌 Yağmur'uma Mektubum</div>
+            <h2 class="section-title gradient-gold">Kalbimden Gelen Kelimeler</h2>
+            <div class="letter-envelope" id="letterEnvelope" onclick="openLetter()">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="envelope-icon">💌</div>
+                    <p>Mektubu Aç</p>
+                </div>
+            </div>
+            <div class="letter-content" id="letterContent">
+                <div class="letter-paper">
+                    <div class="letter-header"><span class="letter-date">♥ Senin için yazıldı ♥</span></div>
+                    <div class="letter-body" id="letterBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-hearts"><span>💕</span><span>💖</span><span>💗</span><span>💓</span><span>💞</span></div>
+        <p>Yağmur'um, seninle her gün güzel, her an anlam kazanıyor.</p>
+        <p class="footer-small">Seni seviyorum, 16.12.2025'ten — ♾️ sonsuza kadar</p>
+    </footer>
+
+    <!-- Confetti -->
+    <div id="confettiContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Tanışma günü geçen süre sayacı
+        (function updateMeetingElapsed() {
+            const meetingDate = new Date(2025, 10, 28, 0, 0, 0); // 28 Kasım 2025
+            const diff = new Date() - meetingDate;
+            if (diff > 0) setCountdown('mt', diff);
+            setTimeout(updateMeetingElapsed, 1000);
+        })();
+        initScrollAnimations();
+    </script>
+</body>
+
+</html>

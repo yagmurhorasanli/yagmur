@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sevgililer Günün Kutlu Olsun Yağmur'um 💝</title>
+    <meta name="description" content="Yağmur'um için Sevgililer Günü sürprizi 💝" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</head>
+
+<body>
+
+
+
+
+    <!-- Canvas for particles -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- HERO -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="hero-badge">💌 Yağmur'uma Özel</div>
+                <h1 class="hero-title">
+                    <span class="line1">Yağmur'um,</span>
+                    <span class="line2">Sen Benim.</span>
+                    <span class="line3">Sevgililer Günün Kutlu Olsun!</span>
+                </h1>
+                <p class="hero-subtitle">Kartanem, bugün sadece senin için… Her şey senin için 💝</p>
+            </div>
+            <div class="hero-illustration">
+                <div class="illus-glow-ring"></div>
+                <img src="Valentine.jpg" alt="Yağmur'um" class="illus-img" />
+                <div class="illus-label">✨ Yağmur'um ✨</div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Aşağı Kaydır</span>
+        </div>
+    </section>
+
+    <!-- VALENTINE SECTION -->
+    <section id="valentine" class="section valentine-section">
+        <div class="section-inner">
+            <div class="section-tag">💝 Sevgililer Günün Kutlu Olsun, Yağmur'um</div>
+            <h2 class="section-title gradient-red">Aşkımız Her Mevsim Çiçek Açar 🌸</h2>
+            <p class="section-desc">
+                28 Kasım 2025'te tanıştık, 16 Aralık 2025'te seninle olduk.
+                Bu kısa sürede hayatım baştan sona değişti. Seninle her an Sevgililer Günü gibi,
+                gözlerinde kaybolduğumda zamanın durduğunu hissediyorum.
+            </p>
+
+            <!-- Valentine Countdown -->
+            <div class="countdown-wrapper">
+                <div class="countdown" id="valentineCountdown">
+                    <div class="count-box"><span id="vd-days">00</span><label>Gün</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="vd-hours">00</span><label>Saat</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="vd-minutes">00</span><label>Dakika</label></div>
+                    <div class="count-sep">:</div>
+                    <div class="count-box"><span id="vd-seconds">00</span><label>Saniye</label></div>
+                </div>
+            </div>
+
+            <!-- Heart beat -->
+            <div class="heartbeat-wrapper">
+                <div class="big-heart" id="bigHeart" onclick="pulseHeart()">❤️</div>
+                <div class="tikla-hint">Tıkla 👆</div>
+                <p class="heartbeat-text">Kalbim sadece Yağmur için atıyor</p>
+            </div>
+
+            <!-- Love reasons slider -->
+            <div class="reasons-section">
+                <h3 class="reasons-title">Yağmur'umu Sevmemin <span>Sonsuz</span> Nedenleri :)</h3>
+                <div class="reasons-slider">
+                    <div class="reasons-track" id="reasonsTrack">
+                        <div class="reason-card">Gülüşün tüm dünyamı aydınlatıyor, Yağmur'um ✨</div>
+                        <div class="reason-card">Sesin en güzel müzik benim için 🎵</div>
+                        <div class="reason-card">28 Kasım'dan bu yana hayatım çok daha güzel 🌧️</div>
+                        <div class="reason-card">Gözlerinde evi buldum 👀</div>
+                        <div class="reason-card">Seninle kahkaha atmak, hayatımın en güzel anı 😄</div>
+                        <div class="reason-card">16 Aralık'ta "evet" dediğinde kalbim durdu 💓</div>
+                        <div class="reason-card">Masumiyetin kalbimi her seferinde eritiyor 🫶</div>
+                        <div class="reason-card">Yağmur yağınca artık hep seni düşünüyorum 🌧️💕</div>
+                        <div class="reason-card">Yanında olmak, var olmanın en güzel hali 🌸</div>
+                        <div class="reason-card">Seninle her saniyem bir hazine, Yağmur'um 💎</div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" onclick="prevReason()">◀</button>
+                    <div class="slider-dots" id="sliderDots"></div>
+                    <button class="slider-btn" onclick="nextReason()">▶</button>
+                </div>
+            </div>
+
+            <!-- XOXO -->
+            <div class="xoxo-section">
+                <div class="xoxo-letters">
+                    <span class="xo-letter x1">X</span><span class="xo-letter o1">O</span>
+                    <span class="xo-letter x2">X</span><span class="xo-letter o2">O</span>
+                </div>
+                <p>Öpücükler &amp; Sarılmalar <br /><small>Hep seninle, hep böyle…</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR SONG -->
+    <section id="song" class="section song-section">
+        <div class="section-inner">
+            <div class="section-tag">🎵 Şarkımız</div>
+            <h2 class="section-title gradient-pink">Bu Şarkı Bizi Anlatıyor</h2>
+            <p class="section-desc">Her çaldığında seni düşünüyorum. Bu şarkı benim için artık sadece bir şarkı değil —
+                senin sesin, kokun, gülüşün.</p>
+            <div class="spotify-wrapper">
+                <div id="spotifyContainer" style="border-radius:18px; overflow:hidden; min-height:152px;"></div>
+            </div>
+            <p class="song-note">🎧 Kulaklığını tak, gözlerini kapat ve beni düşün…</p>
+        </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section id="letter" class="section letter-section">
+        <div class="section-inner">
+            <div class="section-tag">💌 Yağmur'uma Mektubum</div>
+            <h2 class="section-title gradient-gold">Kalbimden Gelen Kelimeler</h2>
+            <div class="letter-envelope" id="letterEnvelope" onclick="openLetter()">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="envelope-icon">💌</div>
+                    <p>Mektubu Aç</p>
+                </div>
+            </div>
+            <div class="letter-content" id="letterContent">
+                <div class="letter-paper">
+                    <div class="letter-header"><span class="letter-date">♥ Senin için yazıldı ♥</span></div>
+                    <div class="letter-body" id="letterBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-hearts"><span>💕</span><span>💖</span><span>💗</span><span>💓</span><span>💞</span></div>
+        <p>Yağmur'um, seninle her gün güzel, her an anlam kazanıyor.</p>
+        <p class="footer-small">Seni seviyorum, 16.12.2025'ten — ♾️ sonsuza kadar</p>
+    </footer>
+
+    <!-- Confetti -->
+    <div id="confettiContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Sevgililer Günü geri sayım
+        (function updateVdCountdown() {
+            const MONTH = 2, DAY = 14; // 14 Şubat
+            const now = new Date();
+            if (now.getMonth() + 1 === MONTH && now.getDate() === DAY) {
+                zeroCountdown('vd');
+            } else {
+                let target = new Date(now.getFullYear(), MONTH - 1, DAY, 0, 0, 0);
+                if (target <= now) target = new Date(now.getFullYear() + 1, MONTH - 1, DAY, 0, 0, 0);
+                const diff = target - now;
+                if (diff > 0) setCountdown('vd', diff);
+                setTimeout(updateVdCountdown, 1000);
+            }
+        })();
+        initSlider();
+        initScrollAnimations();
+    </script>
+</body>
+
+</html>
